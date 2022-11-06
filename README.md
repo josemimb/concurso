@@ -1,4 +1,4 @@
-# concurso de radioaficionados
+# Concurso de radioaficionados
 
 Proyecto propuesto para el primer trimestre de DAW
 
