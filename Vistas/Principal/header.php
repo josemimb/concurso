@@ -1,34 +1,36 @@
-<header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">SANIMAL</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<?php
+    $usuarioLogueado = Usuarios::estaLogeado()? $_SESSION["usuarioLogueado"] : "";
+    $usuarioData = new Usuarios($conexion, $usuarioLogueado);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="?menu=mantenimiento">MANTENIMIENTO <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            LISTADOS
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="?menu=listadoanimales">ANIMALES</a>
-                            <a class="dropdown-item" href="?menu=listadovacunas">VACUNACIONES</a>
-                        </div>
-                    </li>
-                </ul>
-                <?= Sesion::existe('login')?"Hola bienvenido ".Sesion::leer('login').
-                "<a href='?menu=cerrarsesion'>Cerrar sesión</a>":""; ?>
-
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
+    <header>
+        <nav>
+            <div class="grid--container--2">
+                <div class="g--informacion">
+                    <div id="header">
+                        <ul class="nav">
+                        <img src="img/logo_transparent.png" width="150px" alt="" >
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Concursos
+                    </div>
+                </div>
+                <div class="g--buttons">
+                    <i class="fa-solid fa-magnifying-glass fa-6 img__iconColor">&nbsp;&nbsp;<input type="search" class="input" placeholder="Buscar"></i>&nbsp;&nbsp;&nbsp;
+                    <button class="login"><a class="a2" href="?menu=cerrarsesion">Cerrar sesion</a></button>
+                    
+                </div>
             </div>
         </nav>
-    </header>
+    </header> 
+</body>
+</html>
+
