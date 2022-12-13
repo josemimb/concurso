@@ -26,10 +26,8 @@
                     <a href=""><i class="fa-brands fa-twitter fa-xl img__iconColor"></i></a>
                     <a href=""><i class="fa-brands fa-facebook fa-xl img__iconColor"></i></a>
                     <a href=""><i class="fa-brands fa-instagram fa-xl img__iconColor"></i></a>
-                    <a href=""><i class="fa fa-google-plus fa-xl"></i></a>
-                    <a href=""><i class="fa fa-youtube fa-xl"></i></a>
-                    <a href=""><i class="fa fa-linkedin-square fa-xl"></i></a>
-                    
+                    <a href=""><i class="fa-brands fa-google fa-xl"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube fa-xl"></i></a>
                 </div>
             </div>
             <div class="g--buttons--footer">

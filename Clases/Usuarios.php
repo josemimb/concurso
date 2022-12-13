@@ -3,7 +3,7 @@
 class Usuarios  {
     private $id;
     private $indicativo;
-    private $correo;
+    private $email;
     private $localizacion;
     private $imagen;
     private $rol;
@@ -21,8 +21,8 @@ class Usuarios  {
     }*/
     
     
-    public function get_correo(){
-        return $this->correo;
+    public function get_email(){
+        return $this->email;
     }
     public function get_localizacion(){
         return $this->localizacion;
@@ -53,7 +53,7 @@ class Usuarios  {
     /**
      * Get the value of nombre
      */ 
-    public function getNombre()
+    public function get_Nombre()
     {
         return $this->nombre;
     }
@@ -73,7 +73,7 @@ class Usuarios  {
     /**
      * Get the value of contraseña
      */ 
-    public function getContraseña()
+    public function get_Contraseña()
     {
         return $this->contraseña;
     }
@@ -128,6 +128,19 @@ class Usuarios  {
     public function getId(){
         return $this->sqlData["id"];
     }
+    public function get_Id(){
+        return $this->id;
+    }
+    public function getNombre(){
+        return $this->sqlData["nombre"];
+    }public function getContraseña(){
+        return $this->sqlData["contraseña"];
+    }public function getEmail(){
+        return $this->sqlData["email"];
+    }
+    // public function getDistintivo(){
+    //     return $this->sqlData["indicativo"];
+    // }
 
     public function getConcursos(){
         $id= $this->getId();

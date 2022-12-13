@@ -1,0 +1,25 @@
+  .contenedoor{
+    border-radius: 20px;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 40px;
+    text-align: left;
+    background-color: bisque;
+  }
+  .boton{
+    display: none;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .contenedoor:hover {
+    width: 80%;
+  }
+  .contenedoor:hover > .boton{
+    display: inline;
+  }
+  
+  .margen-imagen{
+    margin-left: 5%;
+    //margin-top: 4%;
+    border-radius: 10px;
+  }

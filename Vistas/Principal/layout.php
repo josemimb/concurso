@@ -2,6 +2,8 @@
  
 include_once("c://xampp/htdocs/concurso/helper/config.php");
  // include_once("c://xampp/htdocs/concurso/helper/db.php");
+$usuarioLogueado = Usuarios::estaLogeado()? $_SESSION["usuarioLogueado"] : "";
+$usuarioData = new Usuarios($conexion, $usuarioLogueado);
 
  ?>
 <!DOCTYPE html>
@@ -24,12 +26,15 @@ include_once("c://xampp/htdocs/concurso/helper/config.php");
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/sweetalert2@9.5.3/dist/sweetalert2.all.min.js">
+
+    </script>
 </head>
 
 <body>
 
 <?php
-        require_once './Vistas/Principal/header.php';
+        //require_once './Vistas/Principal/header.php';
         
       // require_once './Vistas/Login/login.php';
         require_once './Vistas/Principal/enruta.php';
@@ -53,12 +58,3 @@ include_once("c://xampp/htdocs/concurso/helper/config.php");
 
 </html>
 
-<!-- 
-<section>
-        <div id="cuerpo">
-        <?php
-           require_once './Vistas/Mantenimiento/pantallaUser.php';
-        ?>
-        </div>
-    </section>
--->

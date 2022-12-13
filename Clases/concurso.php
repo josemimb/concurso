@@ -91,6 +91,10 @@
 
                 return $this;
         }
+        public function getId()
+        {
+                return $this->id;
+        }
 
 
         private $conexion, $sqlData;
@@ -109,9 +113,9 @@
                 }
         }
     
-            public function getId(){
-                return $this->sqlData["id"];
-            }
+             public function get_Id(){
+                 return $this->sqlData["id"];
+             }
             public function getUserId(){
                 return $this->sqlData["id_usuario"];
             }

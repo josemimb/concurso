@@ -10,6 +10,7 @@
         switch($_SESSION['rol']){
             case 1:
                 header('location: ?menu=administrador');
+                //header('location: ./Principal/headerAdmin.php');
             break;
 
             case 2:
@@ -36,7 +37,7 @@
             $_SESSION['rol'] = $rol;
             switch($rol){
                 case 1:
-                    header('location: ?menu=administrador');
+                    header('location: ?menu=administradorConcursos');
                 break;
 
                 case 2:
@@ -47,7 +48,7 @@
             }
         }else{
             // no existe el nombre
-            echo "<div class='contenedor'>Nombre de nombre o contraseña incorrecto</div>";
+            echo "<div class='contenedor'>Nombre o la contraseña son incorrecto</div>";
         }
     }
 
@@ -62,30 +63,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class= contenedor>
-        <div class= contenedor2>
+
+<?php
+        require_once './Vistas/Principal/headerLogin.php';
+    ?>
+    <div class= contenedor2>
         <form action="#" method="POST">
 
-                <i class="fa-solid fa-user fa-8x"></i>
+                <i style="margin-left:30% " class="fa-solid fa-user fa-8x"></i>
+                <p></p>
                 <h1>Bienvenido</h1>
                 <br>
-                <input type="text" name="nombre" placeholder="nombre" size="30">
+                <label for="nombre">Nombre del usuario</label> <br>
+                <input type="text" name="nombre" placeholder="nombre" size="35" required>
                 <p></p>
-                <input type="text" name="contraseña" placeholder="Contraseña" size="30">
+                <label for="contraseña">Contraseña</label> <br>
+                <input type="password" name="contraseña" placeholder="Contraseña" size="35" required>
                 <p></p>
                 <div class=derecha>
+                    ¿No tienes cuenta?
                 <a class="a--derecha" href="?menu=registro"  >Registrate</a>
                 </div>
                 <p></p>
                 <br>
-                <button type="submit">Inciar Sesion</button>
+                <button style="margin-left:30% " type="submit">Inciar Sesion</button>
                 
             </form>
-    
-        </div>
-
-            
     </div>
-
 </body>
 </html>

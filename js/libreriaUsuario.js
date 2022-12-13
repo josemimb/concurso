@@ -25,27 +25,87 @@ HTMLTableElement.prototype.editar=function(){
     var th=document.createElement("th");
     th.setAttribute("rowspan", tHead.rows.length);
     th.className="AutomaticCreateByEditTable";
-    th.innerHTML="Ediccion";
+    th.innerHTML="EDICCION";
     tHead.rows[0].appendChild(th);
+    
     for (let i=0; i<tBody.rows.length; i++){
         let celda = document.createElement("td");
+
+
         let borrar=document.createElement("span");
-        borrar.innerHTML="X";
-        borrar.onclick= function(){
+        borrar.innerHTML='<i class="fa-solid fa-trash"></i> &nbsp;&nbsp;&nbsp;&nbsp;';
+        borrar.onclick= async function(){
+            const respuestaConfirmacion = await Swal.fire({
+                title: "Confirmación",
+                text: "¿Eliminar el usuario? esto no se puede deshacer",
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonColor: '#3085d6',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar',
+            });
+            if (respuestaConfirmacion.value) {
+                const url = 'http://localhost/concurso/helper/usuarioApi.php';
+                var eliminado
+                    document.querySelector("table").addEventListener("click", function(event){
+                        eliminado = event.target.innerText;
+                    }, false);
+                try{
+                    
+                        //console.log(i);
+                        //alert(i)
+                    
+                    var id= i;
+                    console.log(eliminado);
+                    var respuesta = await fetch("http://localhost/concurso/helper/usuarioApi.php?id="+id,{
+                        method: 'DELETE',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                    });
+                    //console.log(e);
+                    //console.log(i);
+               
+                } catch(err){
+                    console.log("Ocurrio un error: "+err);
+                }
+            
+              /*  const respuestaRaw = await fetch(url, {
+                    method: "DELETE",
+                    
+                });
+                const respuesta = await respuestaRaw.json();*/
+                if (respuesta) {
+                    Swal.fire({
+                        icon: "success",
+                        text: "Usuario eliminado",
+                        timer: 700, // <- Ocultar dentro de 0.7 segundos
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        text: "El servidor no respondió con una respuesta exitosa",
+                    });
+                }
+                // De cualquier modo, volver a obtener los productos para refrescar la tabla
+                //obtenerProductos();
             this.parentElement.parentElement.eliminar();
+
+            }
+            
         }
         let editar=document.createElement("span");
-        editar.innerHTML="E";
+        editar.innerHTML='<i class="fa-solid fa-pen-to-square"></i> <br><br>';
         editar.onclick= function(){
             this.parentElement.parentElement.editar();
         }
         let subir=document.createElement("span");
-        subir.innerHTML="S";
+        subir.innerHTML='<i class="fa-solid fa-caret-up fa-xl"></i> &nbsp;&nbsp;&nbsp;&nbsp;';
         subir.onclick= function(){
             this.parentElement.parentElement.subir();
         }
         let bajar=document.createElement("span");
-        bajar.innerHTML="B";
+        bajar.innerHTML='<i class="fa-solid fa-caret-down fa-xl"></i>';
         bajar.onclick= function(){
             this.parentElement.parentElement.bajar();
         }

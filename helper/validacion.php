@@ -82,6 +82,30 @@ class Validacion
         return true;
     }
 
+    /**
+     * Comprueba si el campo cumple una expresión para un DISTINTIVO 
+     *
+     * @param [string] $campo
+     * @return boolean
+     */
+    public function Distintivo($campo){
+        $patron = "/^[A-Z]{2}[0-9](?:[A-Z]|[A-Z]{2}|[A-Z]{3})$/";
+        if(!preg_match($patron,$_POST[$campo]))
+        {
+            $this->errores[$campo]="No cumple con los patrones DL2D, DL2DD, DL2DDD";
+            return false;
+        }
+        return true;
+    }
+
+    public function validar_fecha_espanol($fecha){
+        $valores = explode('/', $fecha);
+        if(count($valores) == 3 && checkdate($valores[1], $valores[0], $valores[2])){
+            return true;
+        }
+        return false;
+    }
+
     public function Dni($campo)
     {
         $letras="TRWAGMYFPDXBNJZSQVHLCKE";

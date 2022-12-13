@@ -1,5 +1,6 @@
 <?php
 
+$newConcurso = new RepoConcurso($conexion);
 
 ?>
 <!DOCTYPE html>
@@ -12,27 +13,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+<?php
+        require_once './Vistas/Principal/headerUser.php';
+    ?>
     <a href="?menu=descargaPremio">pdf</a>
-
-<div class="contenedor2">
-
-    <h2>LISTADO DE CONCURSOS</h2>
+    <h2 >LISTADO DE CONCURSOS</h2>
         <?php
             foreach($usuarioData->getConcursos() as $concurso){ ?>
-            <div>
-                <span><?php echo $concurso->getNombre() ?></span>
-                <span><?php echo $concurso->getDistintivo() ?></span>
-                <span><?php echo $concurso->getDescripcion() ?></span>
-                <span><?php echo $concurso->getInscripcion_inicio() ?></span>
-                <span><?php echo $concurso->getInscripcion_fin() ?></span>
-                <span><?php echo $concurso->getInicio_concurso() ?></span>
-                <span><?php echo $concurso->getFin_concurso() ?></span>
-            </div>
+            <div class="contenedoor">
+                <img class="margen-imagen" src="./././img/logo_transparent.png" width="90%" height="200px" alt="...">
+  <div class="card-body">
+    <h3 class="card-title"><?php echo $concurso->getNombre() ?></h3>
+    <p class="card-text">Este concurso consiste en: <?php echo $concurso->getDescripcion() ?></p>
+    <p>Fecha de Inscripcion: <b> <?php echo $concurso->getInscripcion_inicio() ?></b>  hasta: <b><?php echo $concurso->getInscripcion_fin() ?></b></p>
+    <p>El concurso se inicia el dia: <b> <?php echo $concurso->getInicio_concurso() ?> </b> y se termina el dia: <b> <?php echo $concurso->getFin_concurso() ?></b></p>
+  </div>
+    <button class="boton"><a href="?menu=inscripcion&id=<?php echo $concurso->get_Id()?>">PARTICIPAR</a> </button> <p>
+    <!-- <button id="?menu=juez"><a href="?menu=juez">Juez</a> </button> <p> -->
+</div>
 
            <?php }
         ?>
-
-    </div>
     
     <div class="contenedor">
         <div class="contenedor2">

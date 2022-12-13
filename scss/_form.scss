@@ -1,9 +1,30 @@
 input{
     margin-bottom: 10px;
-    padding: 20px;
     font-size: 15px;
+    margin-bottom: 10px;
   }
+.input--header{
+  font-size: 15px;
+  padding: 0;
+}
 textarea{
     margin-bottom: 10px;
     padding: 10px;
+    border-radius: 5px;
+}
+.dateTime--anchura{
+  width: 350px;
+}
+.boton--sinFondo{
+  background-color: transparent;
+  border: none;
+}
+label{
+  margin-bottom: 10px;
+}
+form{
+  margin: auto;
+}
+h2{
+  margin-left: 6% ;
 }

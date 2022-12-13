@@ -1,0 +1,33 @@
+$primary: rgb(255, 217, 91);
+$secondary: rgb(0, 0, 0);
+
+// Off-canvas menu
+.modal.offcanvas-menu {
+  width: 320px;
+  max-width: 80%;
+  transition: transform .2s ease-in-out;
+  transform: translateX(-100%);
+  .modal-content {
+    height: inherit;
+    color: $secondary;
+    background-color: darken($primary,5);
+    .nav {
+      .nav-link {
+        color: $secondary;
+        text-align: center;
+      }
+    }
+  }
+  &.show {
+    transform: translateX(0);
+  }
+}
+
+// Iconos redes sociales
+$iconSize: 24px;
+.icon {
+  display: block;
+  width: $iconSize;
+  height: $iconSize;
+}
+.icon--color { fill: $secondary; }
